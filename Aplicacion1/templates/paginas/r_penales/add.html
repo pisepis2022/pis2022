@@ -1,0 +1,75 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Agregar un nuevo antecedente penal{% endblock %}
+
+{% block content %}
+
+<!-- {{form.as_p}} -->
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del antecedente penal</h3>
+            <div class="card-body">
+
+
+                <!-- <div class="form-floating mb-3">
+                    <input type="number" min="1" name="direccionpenal" maxlength="300" class="form-control" id="id_archivo">
+                    <label for="room_name">Direccion penal</label>
+                </div> -->
+
+
+                 <form class="row g-3 needs-validation"  enctype="multipart/form-data" method="POST" id="indexform"
+                 novalidate>
+                 {% csrf_token %}
+                 <div class="form-floating mb-3">
+
+                    <input type="text" min="1" name="direccionpenal" maxlength="300" class="form-control" id="id_archivo" {%if form.direccionpenal.value%} value="{{form.direccionpenal.value}}" {%endif%}>
+                    <label for="room_name">Direccion penal</label>
+                </div>
+                     {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-floating mb-3">
+                        {{field}}
+                        <label for="room_name">{{field.label}}</label>
+                    </div>
+                    {% endfor %} 
+                    <!-- {{form.nombreepenal.html_name}}
+                    {{form.nombreepenal.label}}
+                    {{form.nombreepenal.id}}   -->
+                    <!-- <div class="form-floating mb-3">
+                        {{form.idpersona}}
+                          <label for="floatingInput">Persona</label>
+                      </div>
+
+                    <div class="form-floating mb-3">
+                        {{form.nrodoc}}
+                        <label for="floatingInput">N° Documento</label>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        {{form.nombreepenal}}
+                        <label for="floatingInput">Nombre de Penal</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        {{form.fechasentencia}}
+                        <label for="floatingInput">Fecha de sentencia</label>
+                    </div> -->
+                        
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                      </div>
+                   
+         
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+
+
+{% endblock content%}

@@ -1,0 +1,52 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Añade documento {% endblock %}
+
+{% block content %}
+
+<!-- {{form.as_p}} -->
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del documento</h3>
+            <div class="card-body">
+
+                <form class="row g-3 needs-validation"  enctype="multipart/form-data" method="POST" id="indexform"
+                 >
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-floating mb-3">
+                        {{field}}
+                        <label for="room_name">{{field.label}}</label>
+                    </div>
+                    {% endfor %} 
+
+                    
+                    <!-- <div class="form-floating mb-3">
+                        <select name="idtipodocumento" id="floatingInput" placeholder="id rol" value="{{IPersona.idtipodocumento}}" class="form-select">
+                            {% for i in tffaa %}  
+                            <option value="{{i.id}}" {% if  i.id  is IPersona.idtipodocumento.id %}selected {% endif %}>{{i.tipoffaa}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingInput">Tipo de documento</label>
+                    </div>
+                     -->
+                      
+                        
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                      </div>
+                   
+         
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+
+
+{% endblock content%}

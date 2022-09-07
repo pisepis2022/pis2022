@@ -1,0 +1,62 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Agregar un nuevo familiar {% endblock %}
+
+{% block content %}
+
+<!-- {{form.as_p}} -->
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del familiar</h3>
+            <div class="card-body">
+
+                <form class="row g-3 needs-validation"  enctype="multipart/form-data" method="POST" id="indexform"
+                 novalidate>
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-floating mb-3">
+                        {{field}}
+                        <label for="room_name">{{field.label}}</label>
+                    </div>
+                    {% endfor %} 
+
+                    <!-- parentesco
+                    <div class="col-md-4">
+                      <div class="form-floating mb-3">
+                        <select name="idprocedencia" id="floatingInput" placeholder="id rol"  class="form-select">
+                            {% for i in parentescos %}  
+                            <option value="{{i.id}}" >{{i.parentesco}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Parentesco</label>
+                      </div>
+                    </div> -->
+
+                    <!-- <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" name="idparentesco" id="floatingInput" placeholder="Nombres" value="{{form.idparentesco.value}}">
+                          <label for="floatingInput">N° Documento</label>
+                        </div>
+                      </div>
+
+                       -->
+
+
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                      </div>
+                   
+         
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+
+
+{% endblock content%}
