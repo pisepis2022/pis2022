@@ -686,7 +686,7 @@ def modifyIPersona(request, id):
 	IPersona.natural=request.POST.get('natural',False)
 	IPersona.idestadocivil =  Mestadocivil.objects.get(id=request.POST.get('idestadocivil',False))
 	IPersona.idgenero =  Mgenero.objects.get(id=request.POST.get('idgenero',False))
-	IPersona.idubigeo =  Mubigeo.objects.get(iddepartamento = request.POST.get('departamentos'), idprovincia=request.POST.get('provincias'),iddistrito=request.POST.get('ciudades') ),
+	IPersona.idubigeo =  Mubigeo.objects.get(iddepartamento = request.POST.get('departamentos'), idprovincia=request.POST.get('provincias'),iddistrito=request.POST.get('ciudades') )
 	IPersona.domicilio=request.POST.get('domicilio',False)
 	IPersona.telefono=request.POST.get('telefono',False)
 	IPersona.ocupacion=request.POST.get('ocupacion',False)
